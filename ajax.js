@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     console.log('After .ajax');
   });
-  /* Number 3 */
+  /* Number 4 */
 
   $('#step7').on('click', function() {
     console.log('Before .ajax');
@@ -57,5 +57,26 @@ $(document).ready(function () {
 
     console.log('After .ajax');
   });
+  /* Number 5 */
 
+  $('#step8').on('click', function() {
+    console.log('Before .ajax');
+
+    $.ajax({
+      url:'http://first-ajax-api.herokuapp.com/ping',
+      method: 'GET',
+      dataType: 'text',
+
+    }).done(function(data) {
+      $('#step8').append(data);
+      console.log('Got: ' + data)
+    }).fail(function(jqXHR, textStatus) {
+      console.log('.ajax FAILED with ' + jqXHR.status + ' ' + jqXHR.statusText);
+      console.log(jqXHR);
+    }).always(function() {
+      console.log('.ajax request finished');
+    });
+
+    console.log('After .ajax');
+  });
 });
