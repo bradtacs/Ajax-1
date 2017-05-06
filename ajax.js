@@ -68,7 +68,7 @@ $(document).ready(function () {
       dataType: 'text',
 
     }).done(function(data) {
-      $('#step8').append(data);
+      $('#step8').append('<p>' + data + '</p>' );
       console.log('Got: ' + data)
     }).fail(function(jqXHR, textStatus) {
       console.log('.ajax FAILED with ' + jqXHR.status + ' ' + jqXHR.statusText);
@@ -103,7 +103,7 @@ $(document).ready(function () {
     console.log('After .ajax');
   });
 
-  /* Number  */
+  /* Number 7 */
 
   $('#step9').on('click', function() {
     console.log('Before .ajax');
@@ -115,6 +115,29 @@ $(document).ready(function () {
 
     }).done(function(data) {
       $('#step9').append(data);
+      console.log('Got: ' + data)
+    }).fail(function(jqXHR, textStatus) {
+      console.log('.ajax FAILED with ' + jqXHR.status + ' ' + jqXHR.statusText);
+      console.log(jqXHR);
+    }).always(function() {
+      console.log('.ajax request finished');
+    });
+
+    console.log('After .ajax');
+  });
+
+  /* Number 8 */
+
+  $('#step10').on('click', function() {
+    console.log('Before .ajax');
+
+    $.ajax({
+      url:'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      dataType: 'text',
+
+    }).done(function(data) {
+      $('#step10').append(data);
       console.log('Got: ' + data)
     }).fail(function(jqXHR, textStatus) {
       console.log('.ajax FAILED with ' + jqXHR.status + ' ' + jqXHR.statusText);
